@@ -12,7 +12,12 @@ gem install itamae
 
 ## Installation
 
+This is an example of deploying YETI on Vagrant.
+
 ```bash
+git clone https://github.com/ninoseki/itamae_yeti
+cd itamae_yeti
+vagrant up
 itamae ssh --vagrant cookbooks/yeti/default.rb
 ```
 
