@@ -34,6 +34,13 @@ Dir.glob(File.expand_path("./files/etc/systemd/system/*.service", __dir__)).each
 end
 
 execute "systemctl daemon-reload"
+
+%w(yeti_oneshot.service yeti_feeds.service yeti_exports.service yeti_analytics.service yeti_beat.service yeti_uwsgi.service).each do |name|
+  service name do
+    action :enable
+  end
+end
+
 execute "chown -R yeti:yeti /opt/yeti"
 execute "chmod +x /opt/yeti/yeti.py"
 
